@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import API_URL from '../config';
 
 const CreateDoacao = () => {
   const [data, setData] = useState('');
@@ -12,7 +13,7 @@ const CreateDoacao = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://127.0.0.1:5000/doacoes', {
+      const response = await axios.post(`${API_URL}/doacoes`, {
         data,
         hora,
         volume,

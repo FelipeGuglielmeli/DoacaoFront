@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import API_URL from '../config';
 
 const DoacaoList = () => {
   const [doacoes, setDoacoes] = useState([]);
@@ -12,7 +13,7 @@ const DoacaoList = () => {
   useEffect(() => {
     const fetchDoacoes = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:5000/doacoes', {
+        const response = await axios.get(`${API_URL}/doacoes`, {
           params: {
             nome: searchTerm,
             data_inicio: dataInicio,

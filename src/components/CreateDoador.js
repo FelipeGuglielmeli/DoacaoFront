@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import API_URL from '../config';
 
 const CreateDoador = () => {
   const [nome, setNome] = useState('');
@@ -14,7 +15,7 @@ const CreateDoador = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://127.0.0.1:5000/doadores', {
+      const response = await axios.post(`${API_URL}/doadores`, {
         nome,
         cpf,
         contato,

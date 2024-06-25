@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Modal from './Modal';
+import API_URL from '../config';
 
 const DoadorList = () => {
   const [doadores, setDoadores] = useState([]);
@@ -14,7 +15,7 @@ const DoadorList = () => {
   useEffect(() => {
     const fetchDoadores = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:5000/doadores');
+        const response = await axios.get(`${API_URL}/doadores`);
         setDoadores(response.data);
       } catch (error) {
         setError('Erro ao buscar doadores: ' + error.message);
